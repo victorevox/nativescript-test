@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { Item } from "./item";
 import { ItemService } from "./item.service";
+import { Mediafilepicker, ImagePickerOptions } from 'nativescript-mediafilepicker';
 
 @Component({
     selector: "ns-items",
@@ -21,6 +22,33 @@ export class ItemsComponent implements OnInit {
 
     onTap() {
         console.log("tap");
+        let options: ImagePickerOptions = { 
+            android: {
+                isNeedCamera: true,
+                maxNumberFiles: 10,
+                isNeedFolderList: true
+            }, ios: {
+                isCaptureMood: false,
+                maxNumberFiles: 10
+            }
+        };
         
+        let mediafilepicker = new Mediafilepicker();
+        mediafilepicker.openImagePicker(options);
+        
+        mediafilepicker.on("getFiles", function (res) {
+            let results = res.object.get('results');
+            console.dir(results);
+        })
+        
+        mediafilepicker.on("error", function (res) {
+            let msg = res.object.get('msg');
+            console.log(msg);
+        });
+        
+        mediafilepicker.on("cancel", function (res) {
+            let msg = res.object.get('msg');
+            console.log(msg);
+        });
     }
 }
