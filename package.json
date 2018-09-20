@@ -22,7 +22,7 @@
     "nativescript-angular": "^6.1.0",
     "nativescript-background-http": "^3.3.0",
     "nativescript-google-maps-sdk": "^2.6.1",
-    "nativescript-mediafilepicker": "^2.0.7",
+    "nativescript-mediafilepicker": "^2.0.11",
     "nativescript-ngx-fonticon": "^4.2.0",
     "nativescript-plugin-firebase": "^6.7.0",
     "nativescript-social-share": "^1.5.1",
