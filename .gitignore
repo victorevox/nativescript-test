@@ -9,6 +9,9 @@ platforms/
 !webpack.config.js
 *.css
 
+#tests
+mochawesome-report
+
 # Logs
 logs
 *.log

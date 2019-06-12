@@ -2,7 +2,7 @@ import { AppiumDriver, createDriver, SearchOptions, nsCapabilities } from "nativ
 import { assert } from "chai";
 const addContext = require('mochawesome/addContext');
 
-describe("sample scenario", () => {
+describe("items component", () => {
     let driver: AppiumDriver;
 
     before(async function(){
@@ -16,30 +16,31 @@ describe("sample scenario", () => {
     });
 
     afterEach(async function () {
-        if (this.currentTest.state === "failed") {
-            await driver.logTestArtifacts(this.currentTest.title);
-        }
+        // if (this.currentTest.state === "failed") {
+        //     await driver.logTestArtifacts(this.currentTest.title);
+        // }
     });
 
-    it("should find an element by text", async function () {
+    it("should find button", async function () {
         const btnTap = await driver.findElementByAutomationText("TAP");
-        await btnTap.click();
-
-        const message = " taps left";
-        const lblMessage = await driver.findElementByText(message, SearchOptions.contains);
-        assert.equal(await lblMessage.text(), "41" + message);
+        assert.isDefined(btnTap);
 
         // Image verification
-        // const screen = await driver.compareScreen("hello-world-41");
         // assert.isTrue(screen);
     });
-
-    it("should find an element by type", async function () {
+    
+    it("should tap on button and update text", async function () {
+        let counter = 0;
         const btnTap = await driver.findElementByClassName(driver.locators.button);
+        const lblCounter = await driver.findElementByAutomationText("count-label");
+        assert.equal(await lblCounter.text(), `Test ${ counter }`);
         await btnTap.click();
-
-        const message = " taps left";
-        const lblMessage = await driver.findElementByText(message, SearchOptions.contains);
-        assert.equal(await lblMessage.text(), "40" + message);
+        counter++;
+        assert.equal(await lblCounter.text(), `Test ${ counter }`);
+        await btnTap.click();
+        counter++;
+        assert.equal(await lblCounter.text(), `Test ${ counter }`);
+        const screen = await driver.compareScreen("btn-taped");
+        assert.isTrue(screen);
     });
 });

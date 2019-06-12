@@ -32,11 +32,11 @@
         "fullReset": false,
         "app": ""
     },
-    "android24": {
+    "office": {
         "platformName": "Android",
         "platformVersion": "7.0",
-        "deviceName": "Emulator-Api24-Default",
-        "avd": "Emulator-Api24-Default",
+        "deviceName": "Nexus_4_API_22",
+        "avd": "Nexus_4_API_22",
         "lt": 60000,
         "newCommandTimeout": 720,
         "noReset": false,
