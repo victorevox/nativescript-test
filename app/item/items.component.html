@@ -24,7 +24,6 @@ core theme, such as p-20, btn, h2, and list-group. You can view a full list of t
 class names available for styling your app at https://docs.nativescript.org/ui/theme.
 -->
 <StackLayout class="page">
-    <Label text="Test" textWrap="true"></Label>
-    <Button text="Button" (tap)="onTap($event)"></Button>
-    
+    <Label style="text-align: center" padding="35" text="Test {{ count }}" textWrap="true"></Label>
+    <Button horizontalAlignment="center" width="auto" text="Button" (tap)="onTap($event)"></Button>
 </StackLayout>
