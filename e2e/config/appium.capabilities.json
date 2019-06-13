@@ -65,11 +65,11 @@
         "fullReset": false,
         "app": ""
     },
-    "android27": {
+    "home": {
         "platformName": "Android",
         "platformVersion": "27",
-        "deviceName": "Emulator-Api27-Google",
-        "avd": "Emulator-Api27-Google",
+        "deviceName": "Nexus 5",
+        "avd": "Nexus5",
         "lt": 60000,
         "newCommandTimeout": 720,
         "noReset": false,
