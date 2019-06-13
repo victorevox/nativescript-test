@@ -22,4 +22,4 @@ matrix:
       script: 
       #  - npm i -g appium@1.8.0
         - npm i
-        - travis_wait travis_retry npm run e2e -- --runType sim.iPhone6 #--appPath $IOS_PACKAGE
+        - travis_wait travis_retry npm run e2e -- --runType sim.iPhone7 #--appPath $IOS_PACKAGE
