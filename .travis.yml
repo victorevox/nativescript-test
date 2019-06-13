@@ -1,0 +1,25 @@
+
+branches:
+  only: 
+    - master
+
+addons:
+  homebrew:
+    brewfile: true
+
+matrix:
+  include:
+    - stage: "UI Tests"
+      #env:
+      #  - AndroidEmulator="23"
+      os: osx
+      osx_image: xcode10.2
+      language: node_js
+      node_js: "8"
+      install:
+        - npm i -g appium
+        - npm install -g ios-deploy
+      script: 
+      #  - npm i -g appium@1.8.0
+        - npm i
+        - travis_wait travis_retry npm run e2e -- --runType sim.iPhone6 #--appPath $IOS_PACKAGE
