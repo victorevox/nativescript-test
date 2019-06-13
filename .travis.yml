@@ -17,6 +17,7 @@ matrix:
       language: node_js
       node_js: "8"
       install:
+        - npm i -g nativescript@5.4
         - npm i -g appium
         - npm install -g ios-deploy
       script: 
