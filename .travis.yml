@@ -7,6 +7,8 @@ addons:
   homebrew:
     brewfile: true
 
+cache: bundler
+
 matrix:
   include:
     - stage: "UI Tests"

@@ -87,10 +87,10 @@
         "fullReset": false,
         "app": ""
     },
-    "sim.iPhone7": {
+    "sim.iPhone6": {
         "platformName": "iOS",
         "platformVersion": "/12.*/",
-        "deviceName": "iPhone 7",
+        "deviceName": "iPhone 6",
         "noReset": false,
         "fullReset": false,
         "app": ""
