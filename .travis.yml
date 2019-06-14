@@ -20,6 +20,7 @@ matrix:
       osx_image: xcode10.2
       language: node_js
       node_js: "8"
+      install:
         - npm install -g ios-deploy
         - npm i
       script: 
