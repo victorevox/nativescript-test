@@ -16,9 +16,9 @@ describe("items component", () => {
     });
 
     afterEach(async function () {
-        // if (this.currentTest.state === "failed") {
-        //     await driver.logTestArtifacts(this.currentTest.title);
-        // }
+        if (this.currentTest.state === "failed") {
+            await driver.logTestArtifacts(this.currentTest.title);
+        }
     });
 
     it("should find button", async function () {
