@@ -54,11 +54,11 @@
         "fullReset": false,
         "app": ""
     },
-    "android26": {
+    "test": {
         "platformName": "Android",
         "platformVersion": "8.0",
-        "deviceName": "Emulator-Api26-Google",
-        "avd": "Emulator-Api26-Google",
+        "deviceName": "Test-Emulator-27",
+        "avd": "test-emulator",
         "lt": 60000,
         "newCommandTimeout": 720,
         "noReset": false,
