@@ -32,7 +32,7 @@ describe("items component", () => {
     it("should tap on button and update text", async function () {
         let counter = 0;
         const btnTap = await driver.findElementByClassName(driver.locators.button);
-        const lblCounter = await driver.findElementByAutomationText("count-label");
+        const lblCounter = await driver.findElementByText("Test ", SearchOptions.contains);
         assert.equal(await lblCounter.text(), `Test ${ counter }`);
         await btnTap.click();
         counter++;
