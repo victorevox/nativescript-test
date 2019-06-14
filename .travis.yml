@@ -53,8 +53,8 @@ jobs:
         - touch ~/.android/repositories.cfg
         - nvm install v10.16.0
         - $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86" <<< $'y\ny\n'
-        - $ANDROID_HOME/tools/bin/sdkmanager --licenses <<< $'y\ny\n'
-        - $ANDROID_HOME/tools/bin/avdmanager create avd -n test-emulator -p ~/.emulator -k "system-images;android-27;google_apis_playstore;x86" <<< $'no\n
+        - $ANDROID_HOME/tools/bin/sdkmanager --licenses <<< $'y\ny\ny\ny\n'
+        - $ANDROID_HOME/tools/bin/avdmanager create avd -n test-emulator -p ~/.emulator -k "system-images;android-27;google_apis_playstore;x86" <<< $'no\n'
       script:
         - travis_wait travis_retry tns build android
         - find platforms -name *.apk | xargs npm run e2e -- --runType test  --appPath #$IOS_PACKAGE
