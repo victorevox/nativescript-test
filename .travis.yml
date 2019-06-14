@@ -31,6 +31,7 @@ matrix:
       env:
         - BuildAndroid="28"
       language: android
+      node_js: "8"
       jdk: oraclejdk8
       before_cache:
         - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -41,14 +42,14 @@ matrix:
           - $HOME/.gradle/wrapper/
       before_install: 
         - touch ~/.android/repositories.cfg
-        - nvm install stable
+        - nvm install v10.16.0
       intall:
           - $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86"
           - $ANDROID_HOME/tools/bin/sdkmanager --licenses <<< $'y\ny\n'
           - $ANDROID_HOME/tools/bin/avdmanager create avd -n test-emulator -p ~/.emulator -k "system-images;android-27;google_apis_playstore;x86" <<< $'no\n
       script:
         - travis_wait travis_retry tns build android
-        - find platforms -name *.apk | xargs npm run e2e -- --runType android27  --appPath #$IOS_PACKAGE
+        - find platforms -name *.apk | xargs npm run e2e -- --runType test  --appPath #$IOS_PACKAGE
 
 
 
