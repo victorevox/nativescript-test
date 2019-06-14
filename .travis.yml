@@ -24,4 +24,4 @@ matrix:
       #  - npm i -g appium@1.8.0
         - npm i
         - tns buid ios
-        - travis_wait travis_retry find platforms/ -name *.app | xargs npm run e2e -- --runType sim.iPhone7 --appPath #$IOS_PACKAGE
+        - travis_wait travis_retry find platforms -name *.app | xargs npm run e2e -- --runType sim.iPhone6  --appPath #$IOS_PACKAGE
