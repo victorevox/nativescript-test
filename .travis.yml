@@ -9,10 +9,6 @@ addons:
 
 cache: bundler
 
-install:
-  - npm i -g nativescript@5.4
-  - npm i -g appium@1.13.0
-
 jobs:
   include:
     - stage: "UI Tests"
@@ -21,6 +17,8 @@ jobs:
       language: node_js
       node_js: "8"
       install:
+        - npm i -g nativescript@5.4
+        - npm i -g appium@1.13.0
         - npm install -g ios-deploy
         - npm i
       script: 
@@ -55,6 +53,9 @@ jobs:
         - $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86" <<< $'y\ny\n'
         - $ANDROID_HOME/tools/bin/sdkmanager --licenses <<< $'y\ny\ny\ny\n'
         - $ANDROID_HOME/tools/bin/avdmanager create avd -n test-emulator -p ~/.emulator -k "system-images;android-27;google_apis_playstore;x86" <<< $'no\n'
+      install:
+        - npm i -g nativescript@5.4
+        - npm i -g appium@1.13.0
       script:
         - travis_wait travis_retry tns build android
         - find platforms -name *.apk | xargs npm run e2e -- --runType test  --appPath #$IOS_PACKAGE
