@@ -56,8 +56,8 @@
     },
     "test": {
         "platformName": "Android",
-        "platformVersion": "8.0",
-        "deviceName": "Test-Emulator-27",
+        "platformVersion": "8.1.0",
+        "deviceName": "test-emulator",
         "avd": "test-emulator",
         "lt": 60000,
         "newCommandTimeout": 720,
