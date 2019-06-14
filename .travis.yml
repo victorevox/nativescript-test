@@ -20,8 +20,8 @@ matrix:
         - npm i -g nativescript@5.4
         - npm i -g appium
         - npm install -g ios-deploy
+        - npm i
       script: 
       #  - npm i -g appium@1.8.0
-        - npm i
-        - tns buid ios
+        - tns build ios
         - find platforms -name *.app | xargs npm run e2e -- --runType sim.iPhone6  --appPath #$IOS_PACKAGE
