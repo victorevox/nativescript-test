@@ -8,7 +8,7 @@ test-android:
 
 test-ios:
     script:
-    - tns test ios
+    - tns test ios --justlaunch
     tags:
     - macos-10.14
     - xcodebuild-10.1
