@@ -47,6 +47,7 @@ test-e2e-ios:
   dependencies:
     - build-ios
   script:
+    - npm install
     - find platforms -name *.app | xargs npm run e2e -- --runType sim.iPhone6  --appPath
   tags:
     - macos-10.14
