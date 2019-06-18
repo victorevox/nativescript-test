@@ -5,3 +5,10 @@ test-android:
     script:
     - echo 'Hello World'
     - ls
+
+test-ios:
+    script:
+    - tns test ios
+    tags:
+    - macos-10.14
+    - xcodebuild-10.1
