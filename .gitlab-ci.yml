@@ -10,6 +10,8 @@ test-android:
   script:
     - echo 'Hello World'
     - ls
+    - grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
+    - lsmod | grep kvm
 
 test-ios:
   stage: unittest
