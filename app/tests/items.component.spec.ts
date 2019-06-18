@@ -56,8 +56,6 @@ describe('Items component', function () {
 			})
 			fixture.detectChanges();
 			assert.equal(label.text, `Test ${2}`);
-			// console.log("Here is de debug native element x");
-			// console.log(debugElement.nativeElement);
 		})
 	});
 });
