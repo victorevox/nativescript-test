@@ -11,6 +11,7 @@ platforms/
 
 #tests
 mochawesome-report
+!Karma.conf.js
 
 # Logs
 logs

@@ -59,4 +59,4 @@ jobs:
         - npm i -g appium@1.13.0
       script:
         - travis_wait travis_retry tns build android
-        - find platforms -name *.apk | xargs npm run e2e -- --runType test  --appPath #$IOS_PACKAGE
+        - find platforms -name *.apk | xargs npm run e2e -- --runType test --verbose --appPath #$IOS_PACKAGE
