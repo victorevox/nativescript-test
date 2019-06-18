@@ -1,6 +1,7 @@
-image: 'thyrlian/android-sdk'
+image: "thyrlian/android-sdk"
 
 
 test-android:
-	script:
-	- echo 'Hello world'
+    script:
+    - echo 'Hello World'
+    - ls
