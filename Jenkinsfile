@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('unit-tests') {
             steps {
-                sh 'tns test ios --just-launch'
+                sh 'tns test ios --justlaunch'
             }
         }
         stage('build') {
