@@ -1,14 +1,54 @@
 image: "thyrlian/android-sdk"
 
+stages:
+  - unittest
+  - build
+  - e2e
 
 test-android:
-    script:
+  stage: unittest
+  script:
     - echo 'Hello World'
     - ls
 
 test-ios:
-    script:
+  stage: unittest
+  script:
+    - pwd
     - tns test ios --justlaunch
-    tags:
+  tags:
     - macos-10.14
     - xcodebuild-10.1
+
+build-android:
+  stage: build
+  script:
+    - echo 'building'
+
+build-ios:
+  stage: build
+  script:
+    - tns build ios
+  artifacts:
+      paths:
+        - platforms
+  tags:
+    - macos-10.14
+    - xcodebuild-10.1
+
+
+test-e2e-android:
+  stage: e2e
+  script:
+    - echo 'e2e android'
+
+test-e2e-ios:
+  stage: e2e
+  dependencies:
+    - build-ios
+  script:
+    - find platforms -name *.app | xargs npm run e2e -- --runType sim.iPhone6  --appPath
+  tags:
+    - macos-10.14
+    - xcodebuild-10.1
+
