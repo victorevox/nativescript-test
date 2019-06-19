@@ -10,7 +10,7 @@ test-android:
   script:
     - echo 'Hello World'
     - ls
-    - grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
+    #- grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
     - emulator -accel-check
 
 test-ios:
