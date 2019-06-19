@@ -11,7 +11,7 @@ test-android:
     - echo 'Hello World'
     - ls
     - grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
-    - lsmod | grep kvm
+    - emulator -accel-check
 
 test-ios:
   stage: unittest
