@@ -8,7 +8,7 @@ FROM "thyrlian/android-sdk-vnc"
 #COPY vncpass.sh /usr/bin    
 #RUN chmod +x /usr/bin/vncpass.sh && /usr/bin/vncpass.sh
 
-RUN sdkmanager --update && \
+RUN sdkmanager --update 2>&1 >/dev/null && \
     sdkmanager \
     "build-tools;28.0.3" \
     "emulator" \
@@ -23,7 +23,7 @@ RUN sdkmanager --update && \
     "extras;google;google_play_services" \
     # "system-images;android-25;google_apis;arm64-v8a" \
     # "system-images;android-25;default;x86_64" \
-    "platform-tools" && \
+    "platform-tools" 2>&1 >/dev/null && \
     export ANDROID_SDK_ROOT=$ANDROID_HOME
 RUN echo "Creating AVD's" && \
     # echo "no" | avdmanager create avd -n test-arm -k "system-images;android-25;google_apis;arm64-v8a" && \
@@ -37,7 +37,7 @@ RUN echo "Creating AVD's" && \
 # CMD [ "/bin/bash" ]
 RUN apt-get update && apt-get install --no-install-recommends \ 
     curl gnome-screenshot -y && \
-    apt-get autoremove -y
+    apt-get autoremove -y 2>&1 >/dev/null
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ENV NODE_VERSION v8.11.2
 ENV NVM_DIR /root/.nvm
@@ -47,12 +47,12 @@ ENV PATH      $NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH
     # nvm install v8.11.2 && \
     # nodejs npm -y && \
 RUN echo npm --version && \ 
-    npm install -g npm && \
+    npm install -g npm 2>&1 >/dev/null && \
     echo npm --version
 RUN npm config set user 0 && \
     npm config set unsafe-perm true
-RUN /bin/bash -c "echo \"n\" | npm install -g nativescript@5.4"  && \
-    /bin/bash -c "npm install -g appium@1.13.0"
+RUN /bin/bash -c "echo \"n\" | npm install -g nativescript@5.4" 2>&1 >/dev/null && \
+    /bin/bash -c "npm install -g appium@1.13.0" 2>&1 >/dev/null
 RUN mkdir /home/app
 WORKDIR /home/app
 ENV ENV DISPLAY=:1
