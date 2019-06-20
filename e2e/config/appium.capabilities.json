@@ -56,7 +56,7 @@
     },
     "test": {
         "platformName": "Android",
-        "platformVersion": "8.1.0",
+        "platformVersion": "25",
         "deviceName": "test-emulator",
         "avd": "test-emulator",
         "lt": 60000,
