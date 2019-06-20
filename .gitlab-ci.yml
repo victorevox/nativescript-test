@@ -7,11 +7,14 @@ stages:
 
 test-android:
   stage: unittest
+  image: docker:1.11
+  services:
+    - docker:dind
   script:
     - echo 'Hello World'
     - ls
-    #- grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
-    - emulator -accel-check
+    - docker build -t victorevox/ns-android-sdk ./docker
+    - docker run -v $(pwd):/home/app -p 5901:5901 victorevox/ns-android-sdk
 
 test-ios:
   stage: unittest
